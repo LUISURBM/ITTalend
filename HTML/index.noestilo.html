@@ -12,16 +12,19 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<!-- <link rel="stylesheet" href="assets/css/main.css" /> -->
+		<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" >
+		<link rel="stylesheet" href="assets/css/main-simple.css" />
 		<link rel="icon" href="unincca.gif" type="image/gif" sizes="16x16">
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+                 
+
 	</head>
-	<body>
+	<body >
 
 		<!-- Header -->
-			<section id="header">
+                <section id="header" class="panel_datos" data-scrolly-viewport>
 				<header>
-				<div>
+				<div >
 					<h1>LUIS FELIPE URBINA MORENO</h1>
 					<p>Cc.: 1030592031 de Bogotá</p>
 					</div>
@@ -31,21 +34,23 @@
 				</footer>
 			</section>
 			<!-- Banner -->
-			<section id="banner">
+			<section id="banner" data-scrolly-viewport>
 				<header>
+                                    <div >
 					<h2>Ingeniero de Sistemas</h2>
+                                        </div>
 				</header>
 				<p>Universidad <a href="https://www.unincca.edu.co/">INCCA</a> de <a href="http://www.colciencias.gov.co/">Colombia</a>.<br />
 				Ingeniero de <strong>Software</strong>, I Semestre<br /></p>
 				<footer>
-					<a href="#java" class="button style2 scrolly">Skills</a>
+					<a href="#java" class="button style2 scrolly-middle">Skills</a>
 				</footer>
 			</section>
 
 		<!-- Feature 1 -->
 			<article id="java" class="container box style1 right">
-				<a href="https://docs.oracle.com/cd/E19263-01/817-5764/architecture.html" target="_blank" class="image fit"><img src="images/java-logo.png" alt="" style="width: 357px;height: 225px;left: 35px;top: 80px;"/></a>
-				<div class="inner">
+				<a href="https://docs.oracle.com/cd/E19263-01/817-5764/architecture.html" target="_blank" class="image fit"><img src="images/java-logo.png" alt=""/></a>
+				<div class="inner ">
 					<header>
 						<h2>JAVA<br />
 						SE, EE, ME, DB, Embedded</h2>
@@ -57,8 +62,9 @@
 
 		<!-- Feature 2 -->
 			<article id="dbs" class="container box style1 left">
-				<a href="https://en.wikipedia.org/wiki/Relational_database_management_system" target="_blank" class="image fit"><img src="images/js.png" alt="" style="    width: 587px;height: 330px;left: -85px;top: 50px;"/></a>
-				<div class="inner">
+                            <div class="inner gallery">
+                            <a href="https://en.wikipedia.org/wiki/Relational_database_management_system" target="_blank" class="image fit"><img src="images/Oracle_RDBMS.png" alt=""/></a></div>
+				<div class="inner ">
 					<header>
 						<h2>RDBMS<br />
 						Database Managment Systems</h2>
@@ -76,7 +82,7 @@
 					Promises, Async functions, TDD, Progresive Web applications, GraphQL .</p>
 				</header>
 				<div class="inner gallery">
-					<div class="row 0%">
+					<div class="row 0% ">
 						<div class="3u 12u(mobile)"><a href="https://reactjs.org/" class="image fit"><img src="images/thumbs/react.png" alt="" title="ReactJS" /></a></div>
 						<div class="3u 12u(mobile)"><a href="https://angularjs.org/" class="image fit"><img src="images/thumbs/AngularJS.png" alt="" title="AngularJS" /></a></div>
 						<div class="3u 12u(mobile)"><a href="https://vuejs.org/" class="image fit"><img src="images/thumbs/vue.png" alt="" title="Vue" /></a></div>
@@ -133,5 +139,58 @@
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
 
+                        	<script type="text/javascript">
+window.onscroll = scroll;
+function scroll () {
+ 
+ var myList = document.getElementsByClassName("panel_datos");
+ var myList1 = document.getElementById("header");
+     var cln = myList1.cloneNode(true);
+cln.id="cloned";
+var myList2 = document.getElementById("cloned");
+if(myList2){
+   cln = myList2;
+}
+//  alert("scroll event detected! "+ window.pageXOffset + " " + window.pageYOffset);
+  
+ if(pageYOffset>601){
+	 try{
+//             myList[0].style.position = "fixed";
+//	 myList[0].style.top="2px";
+//	 myList[0].style.left="30%";
+         
+         cln.style.padding = "";
+         cln.style.position = "fixed";
+	 cln.style.top="0";
+         cln.style.zIndex="50";
+         cln.style.backgroundColor="#3807AD";
+         cln.style.width="100%";
+         cln.style.height="23%";
+         if(!myList2){
+    document.getElementById("header").appendChild(cln);
+    var footer = document.getElementById(cln.id).getElementsByTagName("footer")[0];
+    document.getElementById(cln.id).removeChild(footer);
+}
+     }catch(ex){}
+ }else  if(pageYOffset<602){
+	 try{
+//	 myList[0].style.position = "relative";
+//	 myList[0].style.top="";
+//	 myList[0].style.left="";
+         
+         cln.style.position = "relative";
+	 cln.style.top="";
+	 cln.style.left="";
+         if(myList2){
+    document.getElementById("header").removeChild(cln);
+}
+    
+	 }catch(ex){}
+	 
+}
+    
+
+}
+</script>
 	</body>
 </html>
